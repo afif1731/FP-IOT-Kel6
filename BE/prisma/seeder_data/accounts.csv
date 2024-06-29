@@ -1,0 +1,4 @@
+id,name,email,password,role
+70dcbac4-cfe9-4cb0-a68e-3d00fb31dfac,Admien,admin@secretbox.com,Admin##1,ADMIN
+09e318f0-c307-4866-97b1-a1486b1447d0,User1,user1@secretbox.com,User##1,USER
+4db3294b-3e8c-492b-95eb-2e1ea74e915d,User2,user2@secretbox.com,User##2,USER

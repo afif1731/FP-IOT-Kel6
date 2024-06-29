@@ -1,0 +1,7 @@
+paho-mqtt
+prisma
+bcrypt
+pyjwt
+quart
+donttrust
+quart-cors

@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "start:dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "mqtt": "^5.7.3",
+    "nuxt": "^3.12.2",
+    "sass": "^1.77.6",
+    "vue": "^3.4.30",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/geojson": "^7946.0.14",
+    "@types/mapbox-gl": "^3.1.0",
+    "@types/mqtt": "^2.5.0",
+    "@types/vue-router": "^2.0.0",
+    "mapbox-gl": "^3.4.0",
+    "nuxt-mapbox": "^1.6.0"
+  }
+}

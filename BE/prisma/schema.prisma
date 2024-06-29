@@ -1,0 +1,33 @@
+generator client {
+    provider = "prisma-client-py"
+}
+
+datasource db {
+    provider = "postgresql"
+    url = env("DATABASE_URL")
+}
+
+enum AccountRole {
+    USER
+    ADMIN
+}
+
+model Accounts {
+    id          String          @id @default(uuid())
+    name        String
+    role        AccountRole     @default(USER)
+    email       String          @unique
+    password    String
+    created_at  DateTime        @default(now())
+    updated_at  DateTime        @default(now()) @updatedAt
+
+    boxes       Boxes[]
+}
+
+model Boxes {
+    id          String      @id @default(uuid())
+    box_psswd   String
+
+    user_id     String
+    user        Accounts    @relation(fields: [user_id], references: [id])
+}
