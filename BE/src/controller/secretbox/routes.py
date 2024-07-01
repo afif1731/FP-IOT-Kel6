@@ -71,15 +71,12 @@ async def loginBoxController(box_id):
         req = await request.get_json()
         data = do_validate(loginBoxValidation, req)
 
-        auth_headers = request.headers.get('Authorization')
-        if not auth_headers:
-            raise CustomError(403, "unauthorized")
-        
-        token = auth_headers.split(" ")[1]
+        result = await BoxService.loginBox(data['id'], data['password'])
 
-        result = await BoxService.loginBox(data['id'], data['password'], token)
+        if not result:
+            raise CustomError(500, "failed to login box")
 
-        response = CustomResponse(200, 'sukses login', result)
+        response = CustomResponse(200, 'sukses login', {})
         return jsonify(response.JSON()), response.code
     except CustomError as err:
         return jsonify(err.JSON()), err.code

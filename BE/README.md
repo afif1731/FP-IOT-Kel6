@@ -25,7 +25,12 @@ docker compose up -d
 prisma migrate dev --schema ./prisma/schema.prisma
 ```
 
+### Use Data Seeder
+```
+python .\seeder.py
+```
+
 ### Run Server
 ```
-python .\main_be.py
+python .\main.py
 ```

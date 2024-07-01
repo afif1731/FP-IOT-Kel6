@@ -118,7 +118,6 @@ function connectToMqtt(): void {
     if (topic === mqttTopic) {
       try {
         Object.assign(mqttMessage, JSON.parse(message.toString()));
-        console.log('Message received:', mqttMessage);
 
         if (mqttMessage.flag === 'OK') {
           sendMqttMessage();

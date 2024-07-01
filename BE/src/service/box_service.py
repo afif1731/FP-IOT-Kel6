@@ -113,22 +113,12 @@ async def claimBox(box_id, password, token):
         'user_id': new_box.user_id
     }
 
-async def loginBox(box_id, password, token):
-    data_decode = jwt_utils.jwt_verify(token)
-
-    if data_decode is None:
-        raise CustomError(403, 'invalid token')
-    
-    user_id = data_decode['data']['user_id']
-    
+async def loginBox(box_id, password):
     box = await BoxRepository.findBoxById(box_id)
 
     if box is None:
         raise CustomError(400, 'invalid box id')
 
-    if box.user_id != user_id:
-        raise CustomError(403, 'you have no access to this box')
-    
     isPasswdTrue = await hashing.compare(password, box.box_psswd)
 
     if not isPasswdTrue:
